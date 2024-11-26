@@ -38,7 +38,7 @@ export default function SignInPage() {
 
 		try {
 			await authService.signIn(payload);
-			console.log(await profileService.getProfile());
+			router.push(ROUTES.DASHBOARD)
 			reset()
 		} catch (error) {
 			toast(formatAxiosError(error))

@@ -36,7 +36,7 @@ export default function RootLayout({
 				)}
 			>
 				<Providers>
-					<div className='max-w-[1600px] mx-auto h-screen flex flex-col items-center justify-center'>
+					<div className='h-screen flex flex-col items-center justify-center'>
 						{children}
 					</div>
 					<Toaster

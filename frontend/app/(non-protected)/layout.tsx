@@ -31,7 +31,7 @@ export default function NonProtectedLayout({
 						color='foreground'
 						className='gap-2'
 					>
-						<TrendingUpDown size={20}/>
+						<TrendingUpDown size={20} />
 						E-QUEUE
 					</Link>
 				</NavbarBrand>
@@ -119,12 +119,12 @@ export default function NonProtectedLayout({
 					</NavbarMenuItem>
 				</NavbarMenu>
 			</Navbar>
-			<main className='w-full relative flex flex-col h-screen px-6 py-9'>
+			<main className='w-full max-w-[1400] relative flex flex-col h-screen px-6 py-9'>
 				{children}
 			</main>
 			<footer className='flex flex-col justify-center pb-9 px-6 gap-3'>
 				<div className='flex justify-center items-center gap-2'>
-				<TrendingUpDown size={17}/>
+					<TrendingUpDown size={17} />
 					E-QUEUE
 				</div>
 				<p className='text-center text-sm text-gray-400'>

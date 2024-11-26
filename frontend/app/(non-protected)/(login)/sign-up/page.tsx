@@ -14,6 +14,8 @@ import { toast } from 'sonner'
 import { useRouter } from 'next/navigation'
 import { ROUTES } from '@/common/enums/routes-enum'
 import { formatAxiosError } from '@/common/axios/error'
+import { useMutation } from '@tanstack/react-query'
+import { ISignUpReq } from '@/types/services/auth.types'
 
 export default function SignUpPage() {
 	const {
@@ -29,6 +31,19 @@ export default function SignUpPage() {
 
 	const router = useRouter()
 
+	const { mutate } = useMutation({
+		mutationKey: ['signUp'],
+		mutationFn: (data: ISignUpReq) => authService.signUp(data),
+		onSuccess: data => {
+			toast('Ласкаво просимо на платформу, ' + data.name + '!')
+			router.push(ROUTES.DASHBOARD)
+			reset()
+		},
+		onError: error => {
+			toast(formatAxiosError(error))
+		}
+	})
+
 	const onSubmit: SubmitHandler<IFormValues> = async (values: IFormValues) => {
 		const payload = {
 			name: values.name,
@@ -36,15 +51,7 @@ export default function SignUpPage() {
 			email: values.email,
 			password: values.password
 		}
-
-		try {
-			const response = await authService.signUp(payload)
-			router.push(ROUTES.DASHBOARD)
-			reset()
-			toast('Ласкаво просимо на платформу, ' + response.name + '!')
-		} catch (error) {
-			toast(formatAxiosError(error))
-		}
+		mutate(payload)
 	}
 
 	return (
