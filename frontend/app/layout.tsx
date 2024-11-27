@@ -4,7 +4,11 @@ import clsx from 'clsx'
 
 import { Providers } from './providers'
 import { fontSans } from '@/common/uiLib/fonts'
-import { SITE_DESCRIPTION, SITE_ICON, SITE_NAME } from '@/common/constants/seo.constants'
+import {
+	SITE_DESCRIPTION,
+	SITE_ICON,
+	SITE_NAME
+} from '@/common/constants/seo.constants'
 import { Toaster } from 'sonner'
 
 export const metadata: Metadata = {
@@ -36,15 +40,14 @@ export default function RootLayout({
 				)}
 			>
 				<Providers>
-					<div className='h-screen flex flex-col items-center justify-center'>
-						{children}
-					</div>
+					{children}
 					<Toaster
 						theme='dark'
 						position='bottom-right'
 						duration={2500}
 						toastOptions={{
-							className: 'bg-default-50 text-foreground text-sm shadow-default-100 shadow-inner border-0'
+							className:
+								'bg-default-50 text-foreground text-sm shadow-default-100 shadow-inner border-0'
 						}}
 					/>
 				</Providers>

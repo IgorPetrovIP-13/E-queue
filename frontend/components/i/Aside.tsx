@@ -1,17 +1,12 @@
 'use client'
 
+import { ROUTES } from '@/common/enums/routes-enum'
 import { useProfile } from '@/common/hooks/useProfile'
-import { authService } from '@/services/auth.service'
-import { Button, Divider, Link, User } from '@nextui-org/react'
-import {
-	BadgePlus,
-	Building2,
-	GitPullRequestArrow,
-	Info,
-	ListOrdered,
-	LogOut,
-	TrendingUpDown
-} from 'lucide-react'
+import { Divider, Link, User } from '@nextui-org/react'
+import { TrendingUpDown } from 'lucide-react'
+import AsideLink from './AsideLink'
+import InfoButton from './InfoButton'
+import LogoutButton from './LogoutButton'
 
 export default function Aside() {
 	const { isLoading, data } = useProfile()
@@ -19,20 +14,20 @@ export default function Aside() {
 	if (isLoading) return <></>
 
 	return (
-		<div className='flex h-full'>
-			<aside className='flex flex-col gap-7 w-64 p-6 pt-8'>
-				<h1 className='flex items-center gap-2'>
-					<TrendingUpDown size={20} />
-					E-QUEUE
+		<div className='sticky top-0 flex h-screen'>
+			<aside className='flex flex-col gap-7 w-14 lg:w-64 transition-all py-6 px-2 lg:px-7 pt-8'>
+				<h1 className='flex items-center justify-center lg:justify-start gap-2'>
+					<TrendingUpDown size={21} />
+					<span className='hidden lg:inline'>E-QUEUE</span>
 				</h1>
 				<Link
-					href='#'
+					href={ROUTES.PROFILE}
 					color='foreground'
 				>
 					<User
 						className='justify-start'
-						name={data.surname + ' ' + data.name}
-						description={data.email}
+						name={<span className='hidden lg:inline'>{data.surname + ' ' + data.name}</span>}
+						description={<span className='hidden lg:inline'>{data.email}</span>}
 						avatarProps={{ src: '/pudge.png' }}
 					/>
 				</Link>
@@ -40,70 +35,23 @@ export default function Aside() {
 					<div className='flex flex-col gap-3'>
 						<div className='flex flex-col gap-1'>
 							<Divider />
-							<Link
-								href='#'
-								isBlock
-								color='foreground'
-								className='flex items-center text-sm p-2 gap-2'
-							>
-								<BadgePlus size={21} />
-								Створити чергу
-							</Link>
-							<Link
-								href='#'
-								isBlock
-								color='foreground'
-								className='flex items-center text-sm p-2 gap-2'
-							>
-								<ListOrdered size={21} /> Мої черги
-							</Link>
+							<AsideLink href={ROUTES.DASHBOARD} />
 						</div>
 						<div className='flex flex-col gap-1'>
 							<Divider />
-							<Link
-								href='#'
-								isBlock
-								color='foreground'
-								className='flex items-center text-sm p-2 gap-2'
-							>
-								<BadgePlus size={21} />
-								Створити організацію
-							</Link>
-							<Link
-								href='#'
-								isBlock
-								color='foreground'
-								className='flex items-center text-sm p-2 gap-2'
-							>
-								<Building2 size={21} /> Мої організації
-							</Link>
-							<Link
-								href='#'
-								isBlock
-								color='foreground'
-								className='flex items-center text-sm p-2 gap-2'
-							>
-								<GitPullRequestArrow size={21} /> Заявки на створення
-							</Link>
+							<AsideLink href={ROUTES.CREATE_QUEUE} />
+							<AsideLink href={ROUTES.MY_QUEUES} />
+						</div>
+						<div className='flex flex-col gap-1'>
+							<Divider />
+							<AsideLink href={ROUTES.CREATE_ORGANIZATION} />
+							<AsideLink href={ROUTES.MY_ORGANIZATIONS} />
+							<AsideLink href={ROUTES.ORGANIZATION_REQUESTS} />
 						</div>
 					</div>
 					<div className='flex flex-col gap-2'>
-						<Button
-							variant='flat'
-							className='w-full flex justify-start items-center p-3 gap-2'
-						>
-							<Info size={20} />
-							Про сервіс
-						</Button>
-						<Button
-							color='danger'
-							variant='flat'
-							className='w-full flex justify-start items-center p-3 gap-2'
-							onClick={async () => await authService.logout()}
-						>
-							<LogOut size={20} />
-							Вихід
-						</Button>
+						<InfoButton />
+						<LogoutButton />
 					</div>
 				</div>
 			</aside>

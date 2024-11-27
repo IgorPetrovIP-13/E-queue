@@ -19,7 +19,7 @@ export default function NonProtectedLayout({
 	children: React.ReactNode
 }) {
 	return (
-		<>
+		<div className='min-h-screen flex flex-col'>
 			<Navbar
 				shouldHideOnScroll
 				className='mt-[-1px]'
@@ -119,9 +119,9 @@ export default function NonProtectedLayout({
 					</NavbarMenuItem>
 				</NavbarMenu>
 			</Navbar>
-			<main className='w-full max-w-[1400] relative flex flex-col h-screen px-6 py-9'>
-				{children}
-			</main>
+			<div className='flex flex-1 justify-center px-6 py-9'>
+				<main className='w-full max-w-[1400]'>{children}</main>
+			</div>
 			<footer className='flex flex-col justify-center pb-9 px-6 gap-3'>
 				<div className='flex justify-center items-center gap-2'>
 					<TrendingUpDown size={17} />
@@ -131,6 +131,6 @@ export default function NonProtectedLayout({
 					© 2024 Ihor Petrov IP-13. All rights reserved.
 				</p>
 			</footer>
-		</>
+		</div>
 	)
 }

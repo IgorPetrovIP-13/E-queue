@@ -12,7 +12,6 @@ import SignInForm from '@/components/non-ptotected/login/sign-in/SignInForm'
 import signInSchema from '@/common/utils/validationSchemas/sign-in.schema'
 import { ROUTES } from '@/common/enums/routes-enum'
 import { useRouter } from 'next/navigation'
-import { profileService } from '@/services/profile.service'
 import { toast } from 'sonner'
 import { formatAxiosError } from '@/common/axios/error'
 
@@ -37,7 +36,7 @@ export default function SignInPage() {
 		}
 
 		try {
-			await authService.signIn(payload);
+			await authService.signIn(payload)
 			router.push(ROUTES.DASHBOARD)
 			reset()
 		} catch (error) {
