@@ -1,5 +1,5 @@
 {
-  "name": "my-turborepo",
+  "name": "e-queue",
   "private": true,
   "scripts": {
     "build": "turbo build",
