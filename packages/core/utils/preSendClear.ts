@@ -1,7 +1,7 @@
 export function preSendClear<T extends Record<string, any>>(obj: T): T {
   const cleanValue = (value: any): any => {
     if (Array.isArray(value)) {
-      return value.map(cleanValue).filter(item => !!item !== false);
+      return value.map(cleanValue).filter(item => Boolean(item) !== false);
     } else if (typeof value === "object" && value !== null) {
       return preSendClear(value);
     } else if (typeof value === "string") {

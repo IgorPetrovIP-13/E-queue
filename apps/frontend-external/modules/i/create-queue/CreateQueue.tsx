@@ -188,7 +188,7 @@ export default function CreateQueue() {
                       errorMessage={errors.work_start_time?.message?.toString()}
                       granularity="minute"
                       hourCycle={24}
-                      isInvalid={!!errors.work_start_time}
+                      isInvalid={Boolean(errors.work_start_time)}
                       label="Початок робочого дня"
                       size="sm"
                       onChange={value => {
@@ -213,7 +213,7 @@ export default function CreateQueue() {
                       errorMessage={errors.work_end_time?.message?.toString()}
                       granularity="minute"
                       hourCycle={24}
-                      isInvalid={!!errors.work_end_time}
+                      isInvalid={Boolean(errors.work_end_time)}
                       label="Кінець робочого дня"
                       size="sm"
                       onChange={value => {
@@ -238,7 +238,7 @@ export default function CreateQueue() {
                       errorMessage={errors.work_break_start_time?.message?.toString()}
                       granularity="minute"
                       hourCycle={24}
-                      isInvalid={!!errors.work_break_start_time}
+                      isInvalid={Boolean(errors.work_break_start_time)}
                       label="Початок перерви"
                       size="sm"
                       onChange={value => {
@@ -263,7 +263,7 @@ export default function CreateQueue() {
                       errorMessage={errors.work_break_end_time?.message?.toString()}
                       granularity="minute"
                       hourCycle={24}
-                      isInvalid={!!errors.work_break_end_time}
+                      isInvalid={Boolean(errors.work_break_end_time)}
                       label="Кінець перерви"
                       size="sm"
                       onChange={value => {
@@ -296,7 +296,7 @@ export default function CreateQueue() {
                           isRequired
                           className="max-w-md"
                           errorMessage={errors.work_time_estimation?.message?.toString()}
-                          isInvalid={!!errors.work_time_estimation}
+                          isInvalid={Boolean(errors.work_time_estimation)}
                           label="Час обслуговування"
                           minValue={1}
                           placeholder="Скільки часу потрібно на обслуговування клієнта"
@@ -323,7 +323,7 @@ export default function CreateQueue() {
                           isRequired
                           className="max-w-md"
                           errorMessage={errors.break_time_estimation?.message?.toString()}
-                          isInvalid={!!errors.break_time_estimation}
+                          isInvalid={Boolean(errors.break_time_estimation)}
                           label="Перерва між клієнтами"
                           minValue={1}
                           placeholder="Скільки триває перерва між клієнтами"
@@ -352,7 +352,7 @@ export default function CreateQueue() {
                       isRequired
                       defaultItems={executors}
                       errorMessage={errors.executor?.message?.toString()}
-                      isInvalid={!!errors.executor}
+                      isInvalid={Boolean(errors.executor)}
                       label="Виконавець"
                       size="sm"
                       onChange={value => {
@@ -366,7 +366,7 @@ export default function CreateQueue() {
                   {...register("title")}
                   isRequired
                   errorMessage={errors.title?.message?.toString()}
-                  isInvalid={!!errors.title}
+                  isInvalid={Boolean(errors.title)}
                   label="Назва послуги"
                   size="sm"
                 />

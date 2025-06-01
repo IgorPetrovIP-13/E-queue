@@ -68,7 +68,7 @@ export default function CreateOrganizationForm() {
                 isRequired
                 defaultItems={orgTypes}
                 errorMessage={errors.organization_type_id?.message?.toString()}
-                isInvalid={!!errors.organization_type_id}
+                isInvalid={Boolean(errors.organization_type_id)}
                 label="Тип організації"
                 size="sm"
                 onChange={field.onChange}
@@ -80,7 +80,7 @@ export default function CreateOrganizationForm() {
             isRequired
             errorMessage={errors.organization_title?.message?.toString()}
             id="organization_title"
-            isInvalid={!!errors.organization_title}
+            isInvalid={Boolean(errors.organization_title)}
             label="Назва організації"
             size="sm"
           />
@@ -90,7 +90,7 @@ export default function CreateOrganizationForm() {
           isRequired
           errorMessage={errors.organization_description?.message?.toString()}
           id="organization_description"
-          isInvalid={!!errors.organization_description}
+          isInvalid={Boolean(errors.organization_description)}
           label="Опис організації"
           placeholder="Опишіть вашу організацію, чим ви займаєтесь, які цілі та завдання має ваша організація"
           size="sm"
@@ -100,7 +100,7 @@ export default function CreateOrganizationForm() {
             {...register("organization_website")}
             errorMessage={errors.organization_website?.message?.toString()}
             id="organization_website"
-            isInvalid={!!errors.organization_website}
+            isInvalid={Boolean(errors.organization_website)}
             label="Веб-сайт організації"
             size="sm"
           />
@@ -109,7 +109,7 @@ export default function CreateOrganizationForm() {
             isRequired
             errorMessage={errors.desired_connection?.message?.toString()}
             id="desired_connection"
-            isInvalid={!!errors.desired_connection}
+            isInvalid={Boolean(errors.desired_connection)}
             label={"Номер телефону/Telegram/Whatsapp/Email"}
             placeholder="Вкажіть номер телефону, Telegram, Whatsapp або Email для зв'язку з вами"
             size="sm"
@@ -119,7 +119,7 @@ export default function CreateOrganizationForm() {
           {...register("user_comment")}
           errorMessage={errors.user_comment?.message?.toString()}
           id="user_comment"
-          isInvalid={!!errors.user_comment}
+          isInvalid={Boolean(errors.user_comment)}
           label="Коментар до заявки"
           placeholder="Вкажіть додаткову інформацію, яка може бути корисною для обробки вашої заявки"
           size="sm"

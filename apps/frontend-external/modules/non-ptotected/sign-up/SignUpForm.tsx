@@ -37,7 +37,7 @@ const SignUpForm = () => {
             {...register("name")}
             isRequired
             errorMessage={errors.name?.message?.toString()}
-            isInvalid={!!errors.name}
+            isInvalid={Boolean(errors.name)}
             label="Ім'я"
             size="sm"
           />
@@ -45,7 +45,7 @@ const SignUpForm = () => {
             {...register("surname")}
             isRequired
             errorMessage={errors.surname?.message?.toString()}
-            isInvalid={!!errors.surname}
+            isInvalid={Boolean(errors.surname)}
             label="Прізвище"
             size="sm"
           />
@@ -54,7 +54,7 @@ const SignUpForm = () => {
           {...register("email")}
           isRequired
           errorMessage={errors.email?.message?.toString()}
-          isInvalid={!!errors.email}
+          isInvalid={Boolean(errors.email)}
           label="Пошта"
           size="sm"
           type="email"
@@ -63,7 +63,7 @@ const SignUpForm = () => {
           {...register("password")}
           isRequired
           errorMessage={errors.password?.message?.toString()}
-          isInvalid={!!errors.password}
+          isInvalid={Boolean(errors.password)}
           label="Пароль"
           size="sm"
         />
@@ -71,7 +71,7 @@ const SignUpForm = () => {
           {...register("confirmPassword")}
           isRequired
           errorMessage={errors.confirmPassword?.message?.toString()}
-          isInvalid={!!errors.confirmPassword}
+          isInvalid={Boolean(errors.confirmPassword)}
           label="Підтвердження паролю"
           size="sm"
         />
