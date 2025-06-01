@@ -15,7 +15,7 @@ export default function AsideLink(props: IAsideLink) {
   return (
     <Link
       isBlock
-      className={`flex justify-center lg:justify-start items-center text-sm p-2 gap-2`}
+      className={"flex justify-center lg:justify-start items-center text-sm p-2 gap-2"}
       color="foreground"
       href={props.href}
       isDisabled={pathname === props.href}
