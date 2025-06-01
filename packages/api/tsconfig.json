@@ -1,0 +1,13 @@
+{
+  "extends": "../typescript-config/base.json",
+  "include": ["."],
+  "exclude": ["dist", "build", "node_modules"],
+  "compilerOptions": {
+    "baseUrl": ".",
+		"target": "ESNext",
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+  }
+}

@@ -1,0 +1,12 @@
+uc-drop-area {
+  border: 1px solid #3f3f46 !important;
+  background-color: transparent !important;
+}
+
+uc-copyright {
+  display: none;
+}
+
+.uc-secondary-btn {
+	padding: 20px;
+}

@@ -1,24 +1,38 @@
 {
-  "name": "e-queue",
-  "private": true,
-  "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
-		"lint-staged": "lint-staged"
-  },
-  "devDependencies": {
-    "eslint": "^9.20.1",
-    "husky": "^9.1.7",
-    "lint-staged": "^15.4.3",
-    "prettier": "^3.5.0",
-    "turbo": "^2.4.0"
-  },
-  "engines": {
-    "node": ">=18"
-  },
-  "packageManager": "npm@10.9.0",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+	"name": "e-queue",
+	"private": true,
+	"scripts": {
+		"build": "turbo build",
+		"dev": "turbo dev",
+		"lint": "turbo run lint --",
+		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
+		"clean-cache": "turbo prune && rm -rf .turbo",
+		"lint-staged": "lint-staged",
+		"prepare": "husky"
+	},
+	"devDependencies": {
+		"@repo/api": "workspace:*",
+		"@repo/core": "workspace:*",
+		"@repo/typescript-config": "workspace:*",
+		"@repo/ui": "workspace:*",
+		"husky": "^9.1.7",
+		"lint-staged": "^15.5.1",
+		"prettier": "^3.5.3",
+		"turbo": "^2.5.2",
+		"typescript": "^5.8.3"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"packageManager": "pnpm@10.10.0",
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
+	"exports": {
+		"./api/*": "./packages/api/*",
+		"./core/*": "./packages/core/*",
+		"./ui/*": "./packages/ui/*",
+		"./typescript/*": "./packages/typescript-config/*"
+	}
 }
