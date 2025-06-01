@@ -104,7 +104,7 @@ export default function InviteModal({
                 isRequired
                 errorMessage={errors.user_email?.message?.toString()}
                 id="user_email"
-                isInvalid={!!errors.user_email}
+                isInvalid={Boolean(errors.user_email)}
                 label="Email користувача"
                 size="sm"
               />
@@ -117,7 +117,7 @@ export default function InviteModal({
                     defaultItems={defaultData}
                     defaultSelectedKey={field.value}
                     errorMessage={errors.ivitation_role?.message?.toString()}
-                    isInvalid={!!errors.ivitation_role}
+                    isInvalid={Boolean(errors.ivitation_role)}
                     label="Роль користувача в організації"
                     size="sm"
                     onChange={field.onChange}
@@ -129,7 +129,7 @@ export default function InviteModal({
                 isRequired
                 errorMessage={errors.invitation_comment?.message?.toString()}
                 id="invitation_comment"
-                isInvalid={!!errors.invitation_comment}
+                isInvalid={Boolean(errors.invitation_comment)}
                 label="Коментар до запрошення"
                 placeholder="Опишіть чому ви запрошуєте цього користувача в організацію"
                 size="sm"
