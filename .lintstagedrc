@@ -1,3 +1,4 @@
 {
-	
+  "*.{js,ts,tsx}": ["npm run format"],
+  "*.json": ["npm run format"]
 }
