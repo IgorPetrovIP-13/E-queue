@@ -15,7 +15,7 @@ export const useCreateAppointment = () => {
 		onSuccess: () => {
 			addToast({
 				color: "success",
-				title: `Ви успішно записались в чергу`,
+				title: "Ви успішно записались в чергу",
 			});
 			router.push(ROUTES.MY_QUEUES);
 		},
