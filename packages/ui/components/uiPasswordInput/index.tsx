@@ -23,7 +23,7 @@ const UiPasswordInput: FC<InputProps> = (props: InputProps) => {
         </button>
       }
       errorMessage={errorMessage}
-      isInvalid={!!errorMessage}
+      isInvalid={Boolean(errorMessage)}
       type={isVisible ? "text" : "password"}
     />
   );

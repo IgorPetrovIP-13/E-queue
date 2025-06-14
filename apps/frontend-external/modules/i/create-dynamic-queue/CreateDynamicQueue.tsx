@@ -151,7 +151,7 @@ export default function CreateDynamicQueue() {
                       errorMessage={errors.work_start_time?.message?.toString()}
                       granularity="minute"
                       hourCycle={24}
-                      isInvalid={!!errors.work_start_time}
+                      isInvalid={Boolean(errors.work_start_time)}
                       label="Початок робочого дня"
                       size="sm"
                       onChange={value => {
@@ -176,7 +176,7 @@ export default function CreateDynamicQueue() {
                       errorMessage={errors.work_end_time?.message?.toString()}
                       granularity="minute"
                       hourCycle={24}
-                      isInvalid={!!errors.work_end_time}
+                      isInvalid={Boolean(errors.work_end_time)}
                       label="Кінець робочого дня"
                       size="sm"
                       onChange={value => {
@@ -204,7 +204,7 @@ export default function CreateDynamicQueue() {
                           isRequired
                           className="max-w-md"
                           errorMessage={errors.work_time_estimation?.message?.toString()}
-                          isInvalid={!!errors.work_time_estimation}
+                          isInvalid={Boolean(errors.work_time_estimation)}
                           label="Час обслуговування"
                           minValue={1}
                           placeholder="Скільки часу потрібно на обслуговування клієнта"
@@ -234,7 +234,7 @@ export default function CreateDynamicQueue() {
                         isRequired
                         defaultItems={executors}
                         errorMessage={errors.executor?.message?.toString()}
-                        isInvalid={!!errors.executor}
+                        isInvalid={Boolean(errors.executor)}
                         label="Виконавець"
                         size="sm"
                         onChange={value => {
@@ -249,7 +249,7 @@ export default function CreateDynamicQueue() {
                   {...register("title")}
                   isRequired
                   errorMessage={errors.title?.message?.toString()}
-                  isInvalid={!!errors.title}
+                  isInvalid={Boolean(errors.title)}
                   label="Назва послуги"
                   size="sm"
                 />

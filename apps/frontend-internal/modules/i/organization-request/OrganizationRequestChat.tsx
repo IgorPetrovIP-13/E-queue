@@ -61,7 +61,7 @@ const OrganizationRequestChat: FC<Props>  = ({
               <div className="flex justify-between">
                 <p className="text-sm text-white flex gap-1 leading-none items-center">
                   {comment.isAdmin && <Star size={20} />}
-                  {comment.isAdmin ? "Ви" : `Користувач`}
+                  {comment.isAdmin ? "Ви" : "Користувач"}
                 </p>
                 <p className="text-sm">{formatDate(comment.createdAt)}</p>
               </div>

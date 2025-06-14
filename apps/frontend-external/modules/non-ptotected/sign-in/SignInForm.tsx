@@ -28,7 +28,7 @@ export default function SignInForm() {
           {...register("email")}
           isRequired
           errorMessage={errors.email?.message?.toString()}
-          isInvalid={!!errors.email}
+          isInvalid={Boolean(errors.email)}
           label="Пошта"
           size="sm"
           type="email"
@@ -37,7 +37,7 @@ export default function SignInForm() {
           {...register("password")}
           isRequired
           errorMessage={errors.password?.message?.toString()}
-          isInvalid={!!errors.password}
+          isInvalid={Boolean(errors.password)}
           label="Пароль"
           size="sm"
         />

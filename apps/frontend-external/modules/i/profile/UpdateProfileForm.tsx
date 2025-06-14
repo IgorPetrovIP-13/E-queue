@@ -66,7 +66,7 @@ export default function UpdateProfileForm() {
               {...register("name")}
               errorMessage={errors.name?.message?.toString()}
               id="name"
-              isInvalid={!!errors.name}
+              isInvalid={Boolean(errors.name)}
               label="Ім'я"
               size="sm"
             />
@@ -74,7 +74,7 @@ export default function UpdateProfileForm() {
               {...register("surname")}
               errorMessage={errors.surname?.message?.toString()}
               id="surname"
-              isInvalid={!!errors.surname}
+              isInvalid={Boolean(errors.surname)}
               label="Прізвище"
               size="sm"
             />
@@ -83,7 +83,7 @@ export default function UpdateProfileForm() {
             {...register("email")}
             errorMessage={errors.email?.message?.toString()}
             id="email"
-            isInvalid={!!errors.email}
+            isInvalid={Boolean(errors.email)}
             label="Email"
             size="sm"
             type="email"
@@ -101,7 +101,7 @@ export default function UpdateProfileForm() {
           <Button
             color="primary"
             isDisabled={
-              !!Object.keys(errors).length || isLoading || !Object.keys(dirtyFields).length
+              Boolean(Object.keys(errors).length) || isLoading || !Object.keys(dirtyFields).length
             }
             isLoading={isLoading}
             type="submit"
