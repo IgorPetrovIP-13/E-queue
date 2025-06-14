@@ -30,4 +30,17 @@ export class AppointmentsService {
 	async getAppointmentsAsUser(userId: Types.ObjectId) {
 		return this.appointmentsRepository.getAppointmentsAsUser(userId);
 	}
+
+	async getMyTodayAppointments(userId: Types.ObjectId) {
+		const rawData = await this.appointmentsRepository.getMyTodayAppointments(userId);
+
+		return rawData.map((appointment) => {
+			return {
+				_id: appointment._id.toString(),
+				time: `${appointment.start_time} - ${appointment.end_time}`,
+				title: appointment.queue_id.title,
+				organization_title: appointment.queue_id.organization_id.organization_title,
+			}
+		})
+	}
 }

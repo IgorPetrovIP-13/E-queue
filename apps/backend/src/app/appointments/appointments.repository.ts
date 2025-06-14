@@ -24,4 +24,25 @@ export class AppointmentsRepository {
       }
     });
   }
+
+  async getMyTodayAppointments(userId: Types.ObjectId) {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1);
+    const dd = String(today.getDate());
+    const todayString = `${dd}.${mm}.${yyyy}`;
+
+    return this.appointment
+      .find({
+        user_id: userId,
+        date: todayString
+      })
+      .populate({
+        path: "queue_id",
+        populate: {
+          path: "organization_id"
+        }
+      })
+      .lean() as any;
+  }
 }

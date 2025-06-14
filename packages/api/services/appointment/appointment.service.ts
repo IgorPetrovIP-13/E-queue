@@ -17,6 +17,13 @@ class AppointmentService {
 		const response = await axiosWithCredentialsInstance.get(
 			`${this.baseUrl}/as-user`
 		);
+		return response.data;
+	}
+
+	async getMyTodayAppointments() {
+		const response = await axiosWithCredentialsInstance.get(
+			`${this.baseUrl}/my-today-appointments`
+		);
 
 		return response.data;
 	}
